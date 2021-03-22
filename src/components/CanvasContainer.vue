@@ -1,6 +1,6 @@
 <template>
-	<div id="canvas" style="width: 700px;height: 400px;background-color: #f2f2f2;" @mousedown.left="clickLeft()"
-		@contextmenu.prevent="clickRight()" @mousemove="calcPosition" @mouseup.left="mouseUpLeft">
+	<div id="canvas" style="border: 1px solid #2C3E50;width: 700px;height: 400px;background-color: rgb(255,255,255)" @mousedown.left="mouseDownLeft()"
+		@contextmenu.prevent="clickRight()" @mousemove="calcPosition()" @mouseup.left="mouseUpLeft()">
 	</div>
 </template>
 
@@ -30,7 +30,7 @@
 				this.drawCircle();
 				this.zr.add(this.nodes[0]);
 			},
-			clickLeft() {
+			mouseDownLeft() {
 				let x = event.offsetX;
 				let y = event.offsetY;
 				let isBlack = true;
@@ -106,6 +106,39 @@
 						fill: 'rgb(255,247,232)',
 						stroke: 'rgb(255,191,114)'
 					},
+					textContent: new zrender.Text({
+						style: {
+							text: 'Start'
+						}
+					}),
+					textConfig: {
+						position: 'inside'
+					},
+					states: {
+						"checked": {
+							style: {
+								fill: 'rgb(255,212,154)',
+								stroke: 'rgb(255,142,53)',
+								shadowBlur: 1,
+								shadowColor: 'rgb(254,228,187)'
+							}
+						},
+						"default": {
+							style: {
+								fill: 'rgb(255,247,232)',
+								stroke: 'rgb(255,191,114)'
+							}
+						}
+					}
+				}).on('click', function(event) {
+					let checkedStyle = event.target.states.checked.style
+					let x = event.offsetX;
+					let y = event.offsetY;
+					if (circle.contain(x, y)) {
+						this.attr({
+							style: checkedStyle
+						})
+					}
 				})
 				// 添加圆到group里
 				console.log(circle.type)

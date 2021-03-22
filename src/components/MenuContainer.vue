@@ -1,5 +1,5 @@
 <template>
-	<div style="border: 1px solid rgb(235, 237, 240); background-color: #fafafa; padding: 5px 0; width: 100%;">
+	<div style="background-color: #fafafa; padding: 5px 0; width: 100%;height: 2.375rem;">
 		<a-button-group>
 			<a-tooltip placement="topLeft" title="撤销">
 				<a-button size="small" icon="undo" />

@@ -4,7 +4,7 @@
 			<a-layout-header><MenuContainer /></a-layout-header>
 			<a-layout style="border-bottom: 1px solid rgb(235, 237, 240);">
 				<a-layout-sider><SideContainer/></a-layout-sider>
-				<a-layout-content><CanvasContainer/></a-layout-content>
+				<a-layout-content style='z-index: 1;'><X6Container/></a-layout-content>
 			</a-layout>
 		</a-layout>
 	</div>
@@ -13,13 +13,13 @@
 <script>
 	import MenuContainer from './MenuContainer.vue'
 	import SideContainer from './SideContainer.vue'
-	import CanvasContainer from './CanvasContainer.vue'
+	import X6Container from './X6Container.vue'
 	export default {
 		name: 'FlowContainer',
 		components: {
 			MenuContainer,
 			SideContainer,
-			CanvasContainer
+			X6Container
 		}
 	}
 </script>
