@@ -31,7 +31,7 @@
 	    				</path>
 	    			</svg></span></div>
 	    	<div class="notation">
-	    		<div class="name">算法组件2</div>
+	    		<div class="name">{{ nodeName }}</div>
 	    	</div>
 	    </div>
 	  </a-popover>
@@ -40,9 +40,12 @@
 <script>
 	export default ({
 		name: 'Count',
-		// props: {
-		// 	num: Number
-		// },
+		props: {
+			nodeName: {
+				type: String,
+				default: ''
+			}
+		},
 		// inject: ['getGraph', 'getNode'],
 		// methods: {
 		// 	click() {
